@@ -1,0 +1,184 @@
+/* Restablecer el html */
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 10px 15px;
+}
+
+
+/* header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+button {
+    border: none;
+    border-radius: 11px;
+    background: #EBEBEB;
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    }
+
+/* main */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    margin: 20px 0;
+}
+
+h3 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+p {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.slot {
+    border-radius: 10px;
+    border: 1.5px dashed rgba(0, 0, 0, 0.30);
+    background: #ECECEC;
+}
+
+.slot-ocupado {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border: 1.5px solid;
+}
+
+.slot-ocupado h3 {
+    color: #000;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.slot-ocupado p {
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.slot-en-espera {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1.5px solid rgba(0, 0, 0, 0.30);
+    gap: 8px;
+}
+
+.slot-en-espera h3 {
+    color: rgba(0, 0, 0, 0.50);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.slot-en-espera p {
+    color: rgba(0, 0, 0, 0.50);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.slot-disponible {
+    display: flex;
+    height: 98px;
+    padding: 38px 52px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.slot-disponible h3 {
+    color: rgba(0, 0, 0, 0.60);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.slot-disponible p {
+    color: rgba(0, 0, 0, 0.50);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.slot-premium {
+    display: flex;
+    height: 98px;
+    padding: 38px 52px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.slot-premium h3 {
+    color: rgba(0, 0, 0, 0.60);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.slot-premium p {
+    color: rgba(0, 0, 0, 0.50);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* btn-new */
+
+.btn-add {
+/* botón flotante en la esquina inferior izquierda */
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    border: none;
+    border-radius: 50%;
+    background: #FFD600;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
