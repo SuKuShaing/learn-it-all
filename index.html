@@ -15,17 +15,14 @@
         <button>Aprendidas</button>
     </header>
     <main>
+        <!-- 
         <div class="slot slot-ocupado">
             <h3>Agigolado</h3>
             <p>falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho</p>
         </div>
         <div class="slot slot-en-espera">
             <h3>Agigolado</h3>
-            <p>falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho</p>
-        </div>
-        <div class="slot slot-disponible">
-            <h3>Lugar Disponible</h3>
-            <p>Inserta un nuevo concepto a aprender</p>
+            <p>falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho</p>
         </div>
         <div class="slot slot-disponible">
             <h3>Lugar Disponible</h3>
@@ -35,33 +32,29 @@
             <h3>Obtener Lugar</h3>
             <p>Comparte la aplicación o adquiere más lugares</p>
         </div>
-        <div class="slot slot-premium">
-            <h3>Obtener Lugar</h3>
-            <p>Comparte la aplicación o adquiere más lugares</p>
-        </div>
-
-        <div id="btn-add" onclick="openModal()">
-            <img src="./svg/mas.svg" alt="">
-        </div>
-        <dialog id="dialog">
-            <img src="./svg/mas.svg" onclick="closeModal()" alt="">
-            <form action="">
-                <div class="contenedor-label">
-                    <label for="concepto">Nuevo Concepto</label>
-                    <input type="text" name="concepto" id="concepto" placeholder="Ingresa tu palabra o concepto">
-                </div>
-                <div class="contenedor-label">
-                    <label for="descrip-concepto">Descripción</label>
-                    <!-- <input type="text" name="descrip-concepto" id="descrip-concepto"> -->
-                    <textarea id="w3review" rows="4" name="descrip-concepto" id="descrip-concepto" placeholder="Descripción o explicación del concepto a aprender"></textarea>
-                </div>
-            </form>
-            <div class="btns">
-                <button onclick="closeModal()">cerrar</button>
-                <button onclick="closeModal()">guardar</button>
-            </div>
-        </dialog>
+        -->
     </main>
+    <div id="btn-add" onclick="openModal()">
+        <img src="./svg/mas.svg" alt="">
+    </div>
+    <dialog id="dialog">
+        <img src="./svg/mas.svg" onclick="closeModal()" alt="">
+        <form action="">
+            <div class="contenedor-label">
+                <label for="concepto">Nuevo Concepto</label>
+                <input type="text" name="concepto" id="concepto" placeholder="Ingresa tu palabra o concepto">
+            </div>
+            <div class="contenedor-label">
+                <label for="descrip-concepto">Descripción</label>
+                <!-- <input type="text" name="descrip-concepto" id="descrip-concepto"> -->
+                <textarea id="w3review" rows="4" name="descrip-concepto" id="descrip-concepto" placeholder="Descripción o explicación del concepto a aprender"></textarea>
+            </div>
+        </form>
+        <div class="btns">
+            <button onclick="closeModal()">cerrar</button>
+            <button onclick="closeModal()">guardar</button>
+        </div>
+    </dialog>
 </body>
 <script src="script.js"></script>
 </html>
