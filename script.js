@@ -24,6 +24,9 @@ palabras = [{
 }, {
     concepto: "bizarro",
     definicion: "valiente, generoso, lucido, esplendido"
+}, {
+    concepto: "muladar",
+    definicion: "Lugar o sitio donde se echa el estiércol o la basura de las casas"
 }
 */ 
 
