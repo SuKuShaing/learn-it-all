@@ -167,18 +167,24 @@ p {
 
 /* btn-new */
 
-.btn-add {
-/* botón flotante en la esquina inferior izquierda */
+#btn-add {
+    /*botón flotando en la esquina inferior izquierda*/
     position: fixed;
     bottom: 20px;
-    left: 20px;
-    border: none;
-    border-radius: 50%;
-    background: #FFD600;
+    right: 20px;
+    background: #fff;
+    
     display: flex;
+    width: 50px;
+    height: 50px;
     padding: 15px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+
+    border-radius: 68px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    /* background: rgba(255, 255, 255, 0.90); */
+    /* background con blur */
+    /* backdrop-filter: blur(10px); */
 }
