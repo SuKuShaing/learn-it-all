@@ -39,9 +39,28 @@
             <h3>Obtener Lugar</h3>
             <p>Comparte la aplicación o adquiere más lugares</p>
         </div>
-        <div id="btn-add">
+
+        <div id="btn-add" onclick="openModal()">
             <img src="./svg/mas.svg" alt="">
         </div>
+        <dialog id="dialog">
+            <img src="./svg/mas.svg" onclick="closeModal()" alt="">
+            <form action="">
+                <div class="contenedor-label">
+                    <label for="concepto">Nuevo Concepto</label>
+                    <input type="text" name="concepto" id="concepto" placeholder="Ingresa tu palabra o concepto">
+                </div>
+                <div class="contenedor-label">
+                    <label for="descrip-concepto">Descripción</label>
+                    <!-- <input type="text" name="descrip-concepto" id="descrip-concepto"> -->
+                    <textarea id="w3review" rows="4" name="descrip-concepto" id="descrip-concepto" placeholder="Descripción o explicación del concepto a aprender"></textarea>
+                </div>
+            </form>
+            <div class="btns">
+                <button onclick="closeModal()">cerrar</button>
+                <button onclick="closeModal()">guardar</button>
+            </div>
+        </dialog>
     </main>
 </body>
 <script src="script.js"></script>

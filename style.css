@@ -188,3 +188,107 @@ p {
     /* background con blur */
     /* backdrop-filter: blur(10px); */
 }
+
+/* modal */
+
+dialog {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    margin: auto auto;
+    padding: 30px 20px;
+    position: relative;
+}
+
+dialog img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    /* rotar 45 grados */
+    transform: rotate(45deg);
+    /* reducir el tamaño un 50% */
+    width: 20px;
+    height: 20px;
+
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+dialog form .contenedor-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+dialog form label {
+    color: #000;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+dialog form input {
+    display: flex;
+    width: 292px;
+    min-height: 20px;
+    padding: 6px 8px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: #EAEAEA;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+dialog form textarea[name="descrip-concepto"] {
+    min-height: 60px;
+    display: flex;
+    width: 292px;
+    height: 118px;
+    padding: 6px 8px;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 10px;
+    background: #EAEAEA;
+}
+
+dialog .btns {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+dialog button {
+    font-size: 1.6rem;
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: 0.5px solid #757575;
+    background: #EBEBEB;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
