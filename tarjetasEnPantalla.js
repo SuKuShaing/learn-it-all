@@ -5,11 +5,17 @@ const dialogNuevoConcepto = document.getElementById('dialogNuevoConcepto');
 slotOcupado = `<div class="slot slot-ocupado">
 <h3>Agigolado</h3>
 <p>falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho</p>
+<button class="deleteConcepto">
+    <img src="./svg/mas.svg" alt="eliminar concepto">
+</button>
 </div>`
 
 slotEnEspera = `<div class="slot slot-en-espera">
 <h3>Agigolado</h3>
 <p>falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho</p>
+<button class="deleteConcepto">
+    <img src="./svg/mas.svg" alt="eliminar concepto">
+</button>
 </div>`
 
 slotDisponible = `<div class="slot slot-disponible">
@@ -82,7 +88,9 @@ function obtenerConceptos() {
             contenidoDelMain += `<div class="slot slot-ocupado">
             <h3>${ListaConceptos[i].concepto_title}</h3>
             <p>${ListaConceptos[i].concepto_description}</p>
-            <a onclick="deleteConcepto('${ListaConceptos[i].concepto_title}')">Delete</a>
+            <button class="deleteConcepto" onclick="deleteConcepto('${ListaConceptos[i].concepto_title}')">
+                <img src="./svg/mas.svg" alt="eliminar concepto">
+            </button>
             </div>`;
         }
         for(let i = 0; i < slotUsables - ListaConceptos.length; i++) {
@@ -96,13 +104,18 @@ function obtenerConceptos() {
                 contenidoDelMain += `<div class="slot slot-ocupado">
                 <h3>${ListaConceptos[i].concepto_title}</h3>
                 <p>${ListaConceptos[i].concepto_description}</p>
-                <a onclick="deleteConcepto('${ListaConceptos[i].concepto_title}')">Delete</a>                
+                <button class="deleteConcepto" onclick="deleteConcepto('${ListaConceptos[i].concepto_title}')">
+                    <img src="./svg/mas.svg" alt="eliminar concepto">
+                </button>                
                 </div>`;
             } else {
                 // slotEnEspera
                 contenidoDelMain += `<div class="slot slot-en-espera">
                 <h3>${ListaConceptos[i].concepto_title}</h3>
                 <p>${ListaConceptos[i].concepto_description}</p>
+                <button class="deleteConcepto" onclick="deleteConcepto('${ListaConceptos[i].concepto_title}')">
+                    <img src="./svg/mas.svg" alt="eliminar concepto">
+                </button>                
                 </div>`
             }
         }
@@ -115,8 +128,8 @@ function obtenerConceptos() {
     main.innerHTML = contenidoDelMain
 }
 
-
 // Editar conceptos del localstorage
+// --> No he descubierto como hacerlo aún
 
 
 // Eliminar conceptos del localstorage

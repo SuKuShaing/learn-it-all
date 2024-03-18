@@ -1,4 +1,6 @@
-/* Restablecer el html */
+/*******************************************************************/
+/********************* Restablecer el html *************************/
+/*******************************************************************/
 
 html {
     font-size: 62.5%;
@@ -14,7 +16,10 @@ body {
 }
 
 
-/* header */
+
+/*******************************************************************/
+/*************************** Header ********************************/
+/*******************************************************************/
 
 header {
     display: flex;
@@ -38,8 +43,11 @@ button {
     gap: 10px;
     }
 
-/* main */
 
+
+/*******************************************************************/
+/**************************** Main *********************************/
+/*******************************************************************/
 main {
     display: flex;
     flex-direction: column;
@@ -61,8 +69,29 @@ p {
     border-radius: 10px;
     border: 1.5px dashed rgba(0, 0, 0, 0.30);
     background: #ECECEC;
+    position: relative;
 }
 
+/* btn-eliminar concepto */
+.deleteConcepto {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    /*rotar45grados*/
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.deleteConcepto img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Slot ocupado */
 .slot-ocupado {
     display: flex;
     padding: 19px;
@@ -86,7 +115,7 @@ p {
     line-height: normal;
 }
 
-
+/* slot en espera */
 .slot-en-espera {
     display: flex;
     padding: 12px;
@@ -110,7 +139,7 @@ p {
     line-height: normal;
 }
 
-
+/* slot disponible */
 .slot-disponible {
     display: flex;
     height: 98px;
@@ -137,7 +166,7 @@ p {
     line-height: normal;
 }
 
-
+/* slot premium */
 .slot-premium {
     display: flex;
     height: 98px;
@@ -164,7 +193,11 @@ p {
     line-height: normal;
 }
 
-/* btn-new */
+
+
+/*******************************************************************/
+/*************************** btn-new *******************************/
+/*******************************************************************/
 
 #btn-add {
     /*botón flotando en la esquina inferior izquierda*/
@@ -188,7 +221,11 @@ p {
     /* backdrop-filter: blur(10px); */
 }
 
-/* modal */
+
+
+/*******************************************************************/
+/**************************** Modal ********************************/
+/*******************************************************************/
 
 dialog {
     border-radius: 10px;
@@ -212,7 +249,6 @@ dialog img {
     /* reducir el tamaño un 50% */
     width: 20px;
     height: 20px;
-
 }
 
 dialog form {

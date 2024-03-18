@@ -13,5 +13,7 @@ https://sukushaing.github.io/learn-it-all/
 ## To do:
 ✔ Esqueleto de la plataforma
 ✔ Que se puedan guardar palabras en local
+- Que sea clickeable "lugar disponible"
+- Colocar candado al "obtener lugar"
 - Que se puede Eliminar y modificar palabras en Local
 - Que lance las notificaciones a la hora correspondiente
