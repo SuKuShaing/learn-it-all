@@ -1,34 +1,5 @@
-const dialog = document.getElementById('dialog')
-const main = document.querySelector('main')
+const dialogNuevoConcepto = document.getElementById('dialogNuevoConcepto');
 
-// Donde se almacenan los conceptos
-palabras = [{
-    concepto: "Agigolado",
-    definicion: "falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho"
-}, {
-    concepto: "arrebol",
-    definicion: "el rojo del atardecer"
-}, {
-    concepto: "inmarcesible",
-    definicion: "que no se puede marchitar"
-}
-]
-
-/*
-{
-    concepto: "cachivache",
-    definicion: "cosa inutil, inservible, trasto"
-}, {
-    concepto: "bonhomía",
-    definicion: "Afabilidad, sencillez, bondad y honradez en el carácter y en el comportamiento."
-}, {
-    concepto: "bizarro",
-    definicion: "valiente, generoso, lucido, esplendido"
-}, {
-    concepto: "muladar",
-    definicion: "Lugar o sitio donde se echa el estiércol o la basura de las casas"
-}
-*/ 
 
 // HTML de los slots
 slotOcupado = `<div class="slot slot-ocupado">
@@ -52,53 +23,129 @@ slotPremium = `<div class="slot slot-premium">
 </div>`
 
 
-// Generar contenido del main
-let contenidoDelMain = "";
-slotUsables = 5;
 
-if(palabras.length < slotUsables) {
-    for(let i = 0; i < palabras.length; i++) {
-        // slotOcupado
-        contenidoDelMain += `<div class="slot slot-ocupado">
-        <h3>${palabras[i].concepto}</h3>
-        <p>${palabras[i].definicion}</p>
-        </div>`;
+////////////////////////////////////////////
+////////////// CRUD Conceptos //////////////
+////////////////////////////////////////////
+
+// Guardar conceptos en el localstorage
+function guardarConcepto(e) {
+    let concepto_title = document.getElementById('titleConcepto').value;
+    let concepto_description = document.getElementById('descripConcepto').value;
+
+    const concepto = {
+        concepto_title,
+        concepto_description
+    };
+
+    if(localStorage.getItem('ListaConceptosJson') === null) { // para ver sí está vacío o existe el localstorage conceptos
+        let ListaConceptos = []; // creo un arreglo vacío para guardar los conceptos
+        ListaConceptos.push(concepto); // agrego el objeto task al arreglo
+        localStorage.setItem('ListaConceptosJson', JSON.stringify(ListaConceptos)); // guardo la lista como json en el localstorage
+    } else {
+        let ListaConceptos = JSON.parse(localStorage.getItem('ListaConceptosJson')); // obtengo el Json del localstorage y los transformo a lista
+        ListaConceptos.push(concepto); // agrego el objeto nuevo a la lista de tareas
+        localStorage.setItem('ListaConceptosJson', JSON.stringify(ListaConceptos)); // guardo la lista actualizada en el localstorage
     }
-    for(let i = 0; i < slotUsables - palabras.length; i++) {
-        // slotDisponible
-        contenidoDelMain += slotDisponible;
-    }
-} else {
-    for(let i = 0; i < palabras.length; i++) {
-        if(i < slotUsables) {
-            // slotOcupado
-            contenidoDelMain += `<div class="slot slot-ocupado">
-            <h3>${palabras[i].concepto}</h3>
-            <p>${palabras[i].definicion}</p>
-            </div>`;
-        } else {
-            // slotEnEspera
-            contenidoDelMain += `<div class="slot slot-en-espera">
-            <h3>${palabras[i].concepto}</h3>
-            <p>${palabras[i].definicion}</p>
-            </div>`
-        }
-    }
+
+    document.getElementById('fromNewConcept').reset(); // limpio los campos del formulario
+    // e.preventDefault(); // evita los comportamientos por defecto, entre ellos que no se recargue la página
+
+    obtenerConceptos(); // llamamos a la función para que se ejecute al cargar la página
+    closeModal(); // cierro el modal 
 }
 
-// slotPremium
-contenidoDelMain += slotPremium + slotPremium + slotPremium + slotPremium;
 
-// colocar html dentro de main
-main.innerHTML = contenidoDelMain
+slotUsables = 5;
 
 
+// Obtener conceptos del localstorage y mostrarlos en el main
+function obtenerConceptos() {
+    let main = document.querySelector('main');
+
+    // Verificar si existe el localstorage conceptos, si no existe, lo creo
+    if(localStorage.getItem('ListaConceptosJson') === null) { // para ver sí está vacío o existe el localstorage conceptos
+        localStorage.setItem('ListaConceptosJson', JSON.stringify([])); // si está vacío, creo un arreglo vacío y lo guardo como json en el localstorage
+    }
+
+    // Obtener conceptos del localstorage
+    let ListaConceptos = JSON.parse(localStorage.getItem('ListaConceptosJson')); // obtengo el Json del localstorage y los transformo a lista
+
+    // limpio el contenido del div
+    main.innerHTML = '';
+
+    // Generar contenido del main
+    let contenidoDelMain = "";
+    if(ListaConceptos.length < slotUsables) {
+        for(let i = 0; i < ListaConceptos.length; i++) {
+            // slotOcupado
+            contenidoDelMain += `<div class="slot slot-ocupado">
+            <h3>${ListaConceptos[i].concepto_title}</h3>
+            <p>${ListaConceptos[i].concepto_description}</p>
+            </div>`;
+        }
+        for(let i = 0; i < slotUsables - ListaConceptos.length; i++) {
+            // slotDisponible
+            contenidoDelMain += slotDisponible;
+        }
+    } else {
+        for(let i = 0; i < ListaConceptos.length; i++) {
+            if(i < slotUsables) {
+                // slotOcupado
+                contenidoDelMain += `<div class="slot slot-ocupado">
+                <h3>${ListaConceptos[i].concepto_title}</h3>
+                <p>${ListaConceptos[i].concepto_description}</p>
+                </div>`;
+            } else {
+                // slotEnEspera
+                contenidoDelMain += `<div class="slot slot-en-espera">
+                <h3>${ListaConceptos[i].concepto_title}</h3>
+                <p>${ListaConceptos[i].concepto_description}</p>
+                </div>`
+            }
+        }
+    }
+
+    // slotPremium
+    contenidoDelMain += slotPremium + slotPremium + slotPremium + slotPremium;
+
+    // colocar html dentro de main
+    main.innerHTML = contenidoDelMain
+}
+
+
+
+////////////////////////////////////////////
+/////////// Interacción del Modal //////////
+////////////////////////////////////////////
 
 // abrir modal
 function openModal() {
-    dialog.showModal();
+    dialogNuevoConcepto.showModal();
 }
 
+// cerrar modal
 function closeModal() {
-    dialog.close();
+    dialogNuevoConcepto.close();
 }
+
+// Cerrar modal al hacer click fuera de él
+dialogNuevoConcepto.addEventListener("click", e => {
+    const dialogDimensions = dialogNuevoConcepto.getBoundingClientRect()
+    if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+        ) {
+            closeModal();
+        }
+    })
+
+
+
+////////////////////////////////////////////
+//////////// funciones iniciales ///////////
+////////////////////////////////////////////
+
+obtenerConceptos();

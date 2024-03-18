@@ -10,4 +10,7 @@ https://sukushaing.github.io/learn-it-all/
 - Para las palabras en espera, cuando la palabra es corta el css se rompe
 
 ## To do:
-- Que se puedan guardar palabras en local
+✔ Esqueleto de la plataforma
+✔ Que se puedan guardar palabras en local
+- Que se puede Eliminar y modificar palabras en Local
+- Que lance las notificaciones a la hora correspondiente

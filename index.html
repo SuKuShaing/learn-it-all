@@ -37,22 +37,22 @@
     <div id="btn-add" onclick="openModal()">
         <img src="./svg/mas.svg" alt="">
     </div>
-    <dialog id="dialog">
+    <dialog id="dialogNuevoConcepto">
         <img src="./svg/mas.svg" onclick="closeModal()" alt="">
-        <form action="">
+        <form id="fromNewConcept" action="" method="post">
             <div class="contenedor-label">
-                <label for="concepto">Nuevo Concepto</label>
-                <input type="text" name="concepto" id="concepto" placeholder="Ingresa tu palabra o concepto">
+                <label for="titleConcepto">Concepto</label>
+                <input type="text" name="titleConcepto" id="titleConcepto" placeholder="Ingresa tu palabra o concepto">
             </div>
             <div class="contenedor-label">
-                <label for="descrip-concepto">Descripción</label>
+                <label for="descripConcepto">Descripción</label>
                 <!-- <input type="text" name="descrip-concepto" id="descrip-concepto"> -->
-                <textarea id="w3review" rows="4" name="descrip-concepto" id="descrip-concepto" placeholder="Descripción o explicación del concepto a aprender"></textarea>
+                <textarea id="descripConcepto" rows="4" name="descripConcepto" placeholder="Descripción o explicación del concepto a aprender"></textarea>
             </div>
         </form>
         <div class="btns">
-            <button onclick="closeModal()">cerrar</button>
-            <button onclick="closeModal()">guardar</button>
+            <button formmethod="dialog" onclick="closeModal()">cerrar</button>
+            <button onclick="guardarConcepto()" type="submit">guardar</button>
         </div>
     </dialog>
 </body>
