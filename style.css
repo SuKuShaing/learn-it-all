@@ -91,6 +91,10 @@ p {
     height: 20px;
 }
 
+.slot-en-espera .deleteConcepto img {
+    opacity: 0.50;
+}
+
 /* Slot ocupado */
 .slot-ocupado {
     display: flex;
