@@ -82,6 +82,7 @@ function obtenerConceptos() {
             contenidoDelMain += `<div class="slot slot-ocupado">
             <h3>${ListaConceptos[i].concepto_title}</h3>
             <p>${ListaConceptos[i].concepto_description}</p>
+            <a onclick="deleteConcepto('${ListaConceptos[i].concepto_title}')">Delete</a>
             </div>`;
         }
         for(let i = 0; i < slotUsables - ListaConceptos.length; i++) {
@@ -95,6 +96,7 @@ function obtenerConceptos() {
                 contenidoDelMain += `<div class="slot slot-ocupado">
                 <h3>${ListaConceptos[i].concepto_title}</h3>
                 <p>${ListaConceptos[i].concepto_description}</p>
+                <a onclick="deleteConcepto('${ListaConceptos[i].concepto_title}')">Delete</a>                
                 </div>`;
             } else {
                 // slotEnEspera
@@ -112,6 +114,26 @@ function obtenerConceptos() {
     // colocar html dentro de main
     main.innerHTML = contenidoDelMain
 }
+
+
+// Editar conceptos del localstorage
+
+
+// Eliminar conceptos del localstorage
+function deleteConcepto(title) {
+    let ListaConceptos = JSON.parse(localStorage.getItem('ListaConceptosJson'));
+
+    for(let i = 0; i < ListaConceptos.length; i++) {
+        if(ListaConceptos[i].concepto_title == title) { // Busco que tarea coincide con el título buscado
+            ListaConceptos.splice(i, 1); // Elimino la tarea del arreglo de tareas en la posición i, solo quita 1 elemento
+        }
+    }
+
+    localStorage.setItem('ListaConceptosJson', JSON.stringify(ListaConceptos)); // guardo la lista actualizada en el localstorage 
+
+    obtenerConceptos();
+}
+
 
 
 

@@ -8,6 +8,7 @@ https://sukushaing.github.io/learn-it-all/
 
 ## To do bugfix: 
 - Para las palabras en espera, cuando la palabra es corta el css se rompe
+- Al agregar un concepto, el textarea no ocupa el largo correcto
 
 ## To do:
 ✔ Esqueleto de la plataforma
