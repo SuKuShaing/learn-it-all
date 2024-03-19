@@ -1,4 +1,5 @@
 const dialogNuevoConcepto = document.getElementById('dialogNuevoConcepto');
+document.getElementById('fromNewConcept').addEventListener('submit', guardarConcepto);
 
 
 // HTML de los slots

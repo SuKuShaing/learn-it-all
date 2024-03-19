@@ -15,7 +15,6 @@
         <button>Aprendidas</button>
     </header>
     <main>
-        
         <div class="slot slot-ocupado">
             <h3>Agigolado</h3>
             <p>falta el aire al realizar un esfuerzo, que se ahoga y tiene una presión en el pecho</p>
@@ -38,14 +37,13 @@
             <h3>Obtener Lugar</h3>
             <p>Comparte la aplicación o adquiere más lugares</p>
         </div>
-
     </main>
     <div id="btn-add" onclick="openModal()">
         <img src="./svg/mas.svg" alt="">
     </div>
     <dialog id="dialogNuevoConcepto">
         <img src="./svg/mas.svg" onclick="closeModal()" alt="">
-        <form id="fromNewConcept" action="" method="post">
+        <form id="fromNewConcept" action="" method="dialog">
             <div class="contenedor-label">
                 <label for="titleConcepto">Concepto</label>
                 <input type="text" name="titleConcepto" id="titleConcepto" placeholder="Ingresa tu palabra o concepto" required>
@@ -55,10 +53,10 @@
                 <!-- <input type="text" name="descrip-concepto" id="descrip-concepto"> -->
                 <textarea id="descripConcepto" rows="4" name="descripConcepto" placeholder="Descripción o explicación del concepto a aprender"></textarea>
             </div>
+            <button type="submit">guardar</button>
         </form>
         <div class="btns">
             <button formmethod="dialog" onclick="closeModal()">cerrar</button>
-            <button onclick="guardarConcepto()" type="submit">guardar</button>
         </div>
     </dialog>
 </body>
