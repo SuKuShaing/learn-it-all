@@ -9,6 +9,7 @@ https://sukushaing.github.io/learn-it-all/
 ## To do bugfix: 
 - Para las palabras en espera, cuando la palabra es corta el css se rompe
 - Al agregar un concepto, el textarea no ocupa el largo correcto
+- Resetear los estilos completos
 
 ## To do:
 ✔ Esqueleto de la plataforma
@@ -17,3 +18,4 @@ https://sukushaing.github.io/learn-it-all/
 - Colocar candado al "obtener lugar"
 - Que se puede Eliminar y modificar palabras en Local
 - Que lance las notificaciones a la hora correspondiente
+- Agregar la API transición a la plataforma
