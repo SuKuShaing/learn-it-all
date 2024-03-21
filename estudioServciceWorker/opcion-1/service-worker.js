@@ -34,8 +34,8 @@ const cacheMatch = async (request, preloadResponsePromise) => {
         const cache = await caches.open('v1'); // abre la caché con el nombre 'v1'. Si la caché no existe, se crea
         await cache.put(request, networkResponse.clone()); // agrega la respuesta de la red al cache
         return networkResponse; // retorna la respuesta de la red
-    } catch (error) {
-        console.error('Failed to fetch resource', error);
+    } catch (err) {
+        console.error('Failed to fetch resource', err);
         return new Response('Failed to fetch resource');
     }
 }
