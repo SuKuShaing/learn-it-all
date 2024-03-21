@@ -174,9 +174,33 @@ dialogNuevoConcepto.addEventListener("click", e => {
         e.clientY < dialogDimensions.top ||
         e.clientY > dialogDimensions.bottom
         ) {
-            closeModal();
+        closeModal();
+    }
+})
+
+
+
+
+////////////////////////////////////////////
+///// Solicitar Permiso de notificación ////
+////////////////////////////////////////////
+
+// Pedir permiso para enviar notificaciones
+function solicitarPermisoNotificaciones() {
+    Notification.requestPermission().then((result) => {
+        if (result === 'granted') {
+            new Notification("¡Bienvenido!", {
+                body: "Ahora recibirás notificaciones de tus conceptos",
+                icon: "./svg/mas.svg"
+            });
+            
+            // necesito que el color del h1 cambie a verde añadiéndole un estilo
+            h1 = document.querySelector('h1');
+            h1.style.color = "green";
         }
-    })
+    });
+};
+
 
 
 
@@ -185,3 +209,9 @@ dialogNuevoConcepto.addEventListener("click", e => {
 ////////////////////////////////////////////
 
 obtenerConceptos();
+
+if (Notification.permission === 'granted') {
+    // necesito que el color del h1 cambie a verde añadiéndole un estilo
+    h1 = document.querySelector('h1');
+    h1.style.color = "green";
+}

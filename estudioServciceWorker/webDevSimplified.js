@@ -1,5 +1,6 @@
 const button = document.querySelector('h1');
 
+
 button.addEventListener('click', () => {
     Notification.requestPermission().then((result) => {
         if (result === 'granted') {
