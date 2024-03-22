@@ -40,9 +40,19 @@ function guardarConcepto(e) {
     let concepto_title = document.getElementById('titleConcepto').value;
     let concepto_description = document.getElementById('descripConcepto').value;
 
+
+    let now = new Date();
+    let in30Minutes = new Date();
+    in30Minutes.setMinutes(in30Minutes.getMinutes() + 30); // 30 minutos después de ahora
+    let in2Hours = new Date();
+    in2Hours.setHours(in2Hours.getHours() + 2); // 2 horas después de ahora
+
     const concepto = {
         concepto_title,
-        concepto_description
+        concepto_description,
+        fechayHoraAlGuardar: now,
+        in30Minutes: in30Minutes,
+        in2Hours: in2Hours
     };
 
     if(localStorage.getItem('ListaConceptosJson') === null) { // para ver sí está vacío o existe el localstorage conceptos
@@ -189,10 +199,12 @@ dialogNuevoConcepto.addEventListener("click", e => {
 function solicitarPermisoNotificaciones() {
     Notification.requestPermission().then((result) => {
         if (result === 'granted') {
-            new Notification("¡Bienvenido!", {
-                body: "Ahora recibirás notificaciones de tus conceptos",
-                icon: "./svg/mas.svg"
-            });
+            setTimeout(() => {                
+                new Notification("¡Bienvenido!", {
+                    body: "Ahora recibirás notificaciones de tus conceptos",
+                    icon: "./svg/mas.svg"
+                });
+            }, 1500);
             
             // necesito que el color del h1 cambie a verde añadiéndole un estilo
             h1 = document.querySelector('h1');
