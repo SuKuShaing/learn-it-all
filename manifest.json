@@ -1,0 +1,28 @@
+{
+    "name": "Learn It All",
+    "short_name": "Learn it all",
+    "description": "App para aprender conceptos mediante repetición espaciada",
+    "theme_color": "#ececec",
+    "background_color": "#ececec",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "./",
+    "start_url": "./",
+    "icons": [
+        {
+            "src": "./favicon/android-chrome-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "./favicon/apple-touch-icon.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "./favicon/favicon-16x16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        }
+    ]
+}
