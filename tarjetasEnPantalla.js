@@ -42,18 +42,14 @@ function guardarConcepto(e) {
 
 
     let now = new Date();
-    let in30Minutes = new Date();
-    in30Minutes.setMinutes(in30Minutes.getMinutes() + 30); // 30 minutos después de ahora
-    let in2Hours = new Date();
-    in2Hours.setHours(in2Hours.getHours() + 2); // 2 horas después de ahora
 
     const concepto = {
         concepto_title,
         concepto_description,
-        fechayHoraAlGuardar: now,
-        in30Minutes: in30Minutes,
-        in2Hours: in2Hours
+        fechayHoraAlGuardar: now
     };
+
+    mostrarNotificacion(concepto['concepto_title'], concepto['concepto_description'], concepto['fechayHoraAlGuardar']);
 
     if(localStorage.getItem('ListaConceptosJson') === null) { // para ver sí está vacío o existe el localstorage conceptos
         let ListaConceptos = []; // creo un arreglo vacío para guardar los conceptos
@@ -156,6 +152,21 @@ function deleteConcepto(title) {
     localStorage.setItem('ListaConceptosJson', JSON.stringify(ListaConceptos)); // guardo la lista actualizada en el localstorage 
 
     obtenerConceptos();
+}
+
+
+// Enviar comando al SW para Programar notificaciones
+function mostrarNotificacion(titulo, mensaje, fechayHoraAlGuardar) {
+    if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({
+            type: 'mostrar-notificacion',
+            titulo: titulo,
+            mensaje: mensaje,
+            fechayHoraAlGuardar: fechayHoraAlGuardar
+        });
+    }
+
+    console.log('se le envío al SW el mensaje de mostrar notificacion');
 }
 
 

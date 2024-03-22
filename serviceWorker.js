@@ -84,7 +84,10 @@ self.addEventListener('fetch', (event) => {
 /////////////////////////////// Configuración para que lance las notificaciones a la hora indicada  /////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-self.registration.showNotification('Hola Seba, Esta es la 1era notificación');
+self.registration.showNotification('Hola Seba, Esta es la 1era notificación', {
+    body: "Ahora recibirás notificaciones de tus conceptos",
+    icon: "./svg/mas.svg"
+});
 
 // setInterval(() => {
 //     new Notification('Hola Seba, Esta es la segunda notificación');
@@ -92,5 +95,43 @@ self.registration.showNotification('Hola Seba, Esta es la 1era notificación');
 
 // Cada 60 segundos mostrar una notificación
 setTimeout(() => {
-    self.registration.showNotification('Hola Seba, Esta es la segunda notificación');
+    self.registration.showNotification('Hola Seba, Esta es la segunda notificación', {
+        body: "Ahora recibirás notificaciones de tus conceptos",
+        icon: "./svg/mas.svg"
+    });
 }, 60 * 1000);
+
+
+
+self.addEventListener('message', (event) => {
+    console.log('event.data: ' ,event.data);
+    console.log('event.data.fechayHoraAlGuardar: ', event.data.fechayHoraAlGuardar);
+    console.log('event.data.fechayHoraAlGuardar.toLocaleString(): ', event.data.fechayHoraAlGuardar.toLocaleString());
+
+    if (event.data.type === 'mostrar-notificacion') {
+        // Convierte fechayHoraAlGuardar a un objeto Date
+        let fechayHoraAlGuardar = new Date(event.data.fechayHoraAlGuardar);
+        console.log('fechayHoraAlGuardar: ', fechayHoraAlGuardar);
+        console.log('fechayHoraAlGuardar.toLocaleString(): ', fechayHoraAlGuardar.toLocaleString());
+
+        // Calcula la hora de 30 minutos después
+        let in3Minutes = new Date(fechayHoraAlGuardar.getTime() + 3 * 60 * 1000);
+        console.log('in30Minutes: ', in3Minutes);
+        console.log('in30Minutes.toLocaleString(): ', in3Minutes.toLocaleString());
+
+        // Calcula la diferencia entre la hora actual y in30Minutes
+        let delay = in3Minutes.getTime() - Date.now();
+        console.log('delay: ', delay);
+        console.log('delay.toLocaleString(): ', delay.toLocaleString());
+
+        // Si la diferencia es positiva, programa una notificación para 30 minutos después
+        if (delay > 0) {
+            setTimeout(() => {
+                self.registration.showNotification(event.data.titulo, {
+                    body: event.data.mensaje,
+                    icon: './svg/mas.svg'
+                });
+            }, delay);
+        }
+    }
+});
