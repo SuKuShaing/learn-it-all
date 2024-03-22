@@ -204,7 +204,7 @@ function solicitarPermisoNotificaciones() {
                     body: "Ahora recibirás notificaciones de tus conceptos",
                     icon: "./svg/mas.svg"
                 });
-            }, 1500);
+            }, 2 * 1000);
             
             // necesito que el color del h1 cambie a verde añadiéndole un estilo
             h1 = document.querySelector('h1');
@@ -213,6 +213,21 @@ function solicitarPermisoNotificaciones() {
     });
 };
 
+
+// Botón para lanzar notificación secreta
+function lanzarNotificacionBienvenida() {
+    if (Notification.permission === 'granted') {
+        const notification = new Notification("¡Bienvenido!", {
+            body: "Ahora recibirás notificaciones de tus conceptos",
+            icon: "./svg/mas.svg"
+        });
+
+        // Al hacer click en la notificación, se abre una nueva pestaña
+        notification.onclick = function() {
+            window.open('https://sukushaing.github.io/learn-it-all/');
+        }
+    }
+}; 
 
 
 
